@@ -1,31 +1,32 @@
 dataset:
   # MNIST
-  # train_test_x_y_seperate: true
-  # format: numpy
-  # train_x: "data/train_data.npy"
-  # train_y: "data/train_labels.npy"
-  # test_x: "data/test_data.npy"
-  # test_y: "data/test_labels.npy"
-  # labels:
-  #   - "0"
-  #   - "1"
-  #   - "2"
-  #   - "3"
-  #   - "4"
-  #   - "5"
-  #   - "6"
-  #   - "7"
-  #   - "8"
-  #   - "9"
+  train_test_x_y_seperate: true
+  format: numpy
+  train_x: "data/train_data.npy"
+  train_y: "data/train_labels.npy"
+  test_x: "data/test_data.npy"
+  test_y: "data/test_labels.npy"
+  labels:
+    - "0"
+    - "1"
+    - "2"
+    - "3"
+    - "4"
+    - "5"
+    - "6"
+    - "7"
+    - "8"
+    - "9"
 
   # Spine
-  train_test_x_y_seperate: false
-  cross_validation_fold: 5
-  y_index: 6
-  format: text
-  data: "data/column_3C.dat"
-  labels:
-    - "NO"
-    - "DH"
-    - "SL"
+  # train_test_x_y_seperate: false
+  # cross_validation_fold: 5
+  # y_index: 6
+  # format: text
+  # data: "data/column_3C.dat"
+  # labels:
+  #   - "NO"
+  #   - "DH"
+  #   - "SL"
 
+preprocess_method: none # none, ball_tree, kd_tree

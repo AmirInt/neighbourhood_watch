@@ -1,26 +1,13 @@
 import os
 import numpy as np
-import yaml
 import random
 
 
 class Dataset:
-    def __init__(self):
-        self.load_dataset()
+    def __init__(self, config: dict):
+        self.load_dataset(config)
 
-    def load_config(self) -> dict:
-        with open("conf.yaml") as conf_file:
-            try:
-                config = yaml.safe_load(conf_file)
-            except yaml.YAMLError as exc:
-                print(exc)
-                exit()
-
-        return config
-
-    def load_dataset(self) -> None:
-        config = self.load_config()
-
+    def load_dataset(self, config: dict) -> None:
         self._labels = config["dataset"]["labels"]
 
         if config["dataset"]["train_test_x_y_seperate"] == True:

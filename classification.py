@@ -3,13 +3,17 @@ import time
 import numpy as np
 
 from classification.nn_utils import NearestNeighbour
+from classification.config_utils import load_config
 from classification.dataset_utils import Dataset
 
 
 def main():
     try:
+        # Get the configs
+        config = load_config()
+
         # Load the dataset
-        dataset = Dataset()
+        dataset = Dataset(config)
 
         avg_error = 0.0
         accumulative_time = 0.0
@@ -24,11 +28,11 @@ def main():
             test_labels = dataset_dict["test_y"]
 
             # Create the model
-            nn = NearestNeighbour(train_data, train_labels)
+            start_time = time.time()
+            nn = NearestNeighbour(train_data, train_labels, config["preprocess_method"])
+            test_predictions = nn.mass_predict(test_data)
 
             # Predict the whole test set and record times
-            start_time = time.time()
-            test_predictions = [nn(test_data[i]) for i in range(len(test_data))]
             end_time = time.time()
 
             # Report time
